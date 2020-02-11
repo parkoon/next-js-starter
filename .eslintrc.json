@@ -1,0 +1,19 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "parserOptions": {
+    // ESLint defaults to ES5 syntax-checking
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {}
+}
