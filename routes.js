@@ -1,3 +1,4 @@
+// https://github.com/fridays/next-routes
 const nextRoutes = require('next-routes')
 
 const routes = nextRoutes()

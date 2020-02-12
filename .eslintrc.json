@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": ["airbnb", "prettier"],
   "parserOptions": {
     // ESLint defaults to ES5 syntax-checking
@@ -19,6 +20,11 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": 0,
     "import/extensions": 0,
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "no-debugger": 0,
+    "react/prop-types": 1,
+    "react/jsx-props-no-spreading": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": 1
   }
 }
