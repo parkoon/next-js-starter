@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '@state/ducks/counter/actions'
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  decrementAsync,
+} from '@state/ducks/counter/actions'
 
 const Center = styled.div`
   height: 100vh;
@@ -55,6 +60,15 @@ function Home() {
             +
           </Button>
           <Button color="#ffeaa7" onClick={() => dispatch(decrement())}>
+            -
+          </Button>
+        </ButtonGroup>
+
+        <ButtonGroup>
+          <Button color="#00b894" onClick={() => dispatch(incrementAsync())}>
+            +
+          </Button>
+          <Button color="#ffeaa7" onClick={() => dispatch(decrementAsync())}>
             -
           </Button>
         </ButtonGroup>
