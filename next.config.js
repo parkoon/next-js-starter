@@ -1,8 +1,18 @@
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Note: we provide webpack above so you should not `require` it
-    // Perform customizations to webpack config
-    // Important: return the modified config
+    config.plugins.push(
+      // https://www.npmjs.com/package/dotenv-webpack
+      new Dotenv({
+        path: path.join(__dirname, '.env'),
+        safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+        systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+        silent: true, // hide any errors
+        defaults: false, // load '.env.defaults' as the default values if empty.
+      })
+    )
 
     if (dev) {
       config.module.rules.push({
@@ -12,11 +22,6 @@ module.exports = {
       })
     }
 
-    return config
-  },
-  webpackDevMiddleware: config => {
-    // Perform customizations to webpack dev middleware config
-    // Important: return the modified config
     return config
   },
 }
