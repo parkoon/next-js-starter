@@ -7,6 +7,8 @@ import {
   decrementAsync,
 } from '@state/ducks/counter/actions'
 
+import { withTranslation, i18n } from '@server/i18n'
+
 const Center = styled.div`
   height: 100vh;
   display: flex;
@@ -47,34 +49,60 @@ const Display = styled.div`
   font-size: 3rem;
 `
 
-function Home() {
+const Title = styled.h1`
+  font-weight: bold;
+  font-size: 2rem;
+  color: #2c3e50;
+  letter-spacing: 2px;
+  margin-bottom: 52px;
+`
+
+const FloatingButton = styled(Button)`
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+`
+
+function Home({ t }) {
   const dispatch = useDispatch()
   const count = useSelector(({ counter }) => counter.count)
+
+  const changeLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'ko' : 'en')
+  }
 
   return (
     <>
       <Center>
+        <Title>{t('title')}</Title>
         <Display>{count}</Display>
+
         <ButtonGroup>
+          {/* <Button color="#00b894" onClick={() => dispatch(incrementAsync())}>
+            +
+          </Button> */}
           <Button color="#00b894" onClick={() => dispatch(increment())}>
             +
           </Button>
+          {/* <Button color="#ffeaa7" onClick={() => dispatch(decrementAsync())}>
+            -
+          </Button> */}
           <Button color="#ffeaa7" onClick={() => dispatch(decrement())}>
             -
           </Button>
         </ButtonGroup>
 
-        <ButtonGroup>
-          <Button color="#00b894" onClick={() => dispatch(incrementAsync())}>
-            +
-          </Button>
-          <Button color="#ffeaa7" onClick={() => dispatch(decrementAsync())}>
-            -
-          </Button>
-        </ButtonGroup>
+        <FloatingButton onClick={changeLanguage} color="black">
+          {i18n.language === 'en' ? 'ko' : 'en'}
+        </FloatingButton>
       </Center>
     </>
   )
 }
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['home'],
+})
 
-export default Home
+export default withTranslation('home')(Home)

@@ -2,6 +2,8 @@ import { Provider } from 'react-redux'
 import configureStore from '@/state/store'
 import GlobalStyle from '@/components/GlobalStyle'
 import reduxWrapper from 'next-redux-wrapper'
+import withReduxSaga from 'next-redux-saga'
+import { appWithTranslation } from '@server/i18n'
 
 function App({ Component, pageProps, store }) {
   return (
@@ -24,4 +26,5 @@ App.getInitialProps = async ({ Component, ctx }) => {
   return { pageProps }
 }
 
-export default reduxWrapper(configureStore)(App)
+const translatedApp = appWithTranslation(App)
+export default reduxWrapper(configureStore)(withReduxSaga(translatedApp))
