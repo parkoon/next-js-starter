@@ -1,10 +1,15 @@
+import { Provider } from 'react-redux'
+import configureStore from '@/state/store'
 import GlobalStyle from '@/components/GlobalStyle'
 
+const store = configureStore()
 function App({ Component, pageProps }) {
   return (
     <>
-      <Component {...pageProps} />
-      <GlobalStyle />
+      <Provider store={store}>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </Provider>
     </>
   )
 }

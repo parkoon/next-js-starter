@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment } from '@state/ducks/counter/actions'
 
 const Center = styled.div`
   height: 100vh;
@@ -41,13 +43,20 @@ const Display = styled.div`
 `
 
 function Home() {
+  const dispatch = useDispatch()
+  const count = useSelector(({ counter }) => counter.count)
+
   return (
     <>
       <Center>
-        <Display>2</Display>
+        <Display>{count}</Display>
         <ButtonGroup>
-          <Button color="#00b894">+</Button>
-          <Button color="#ffeaa7">-</Button>
+          <Button color="#00b894" onClick={() => dispatch(increment())}>
+            +
+          </Button>
+          <Button color="#ffeaa7" onClick={() => dispatch(decrement())}>
+            -
+          </Button>
         </ButtonGroup>
       </Center>
     </>
