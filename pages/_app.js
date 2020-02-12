@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 import configureStore from '@/state/store'
 import GlobalStyle from '@/components/GlobalStyle'
+import reduxWrapper from 'next-redux-wrapper'
 
-const store = configureStore()
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, store }) {
   return (
     <>
       <Provider store={store}>
@@ -24,4 +24,4 @@ App.getInitialProps = async ({ Component, ctx }) => {
   return { pageProps }
 }
 
-export default App
+export default reduxWrapper(configureStore)(App)
