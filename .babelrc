@@ -10,7 +10,8 @@
           "@components": "./src/components",
           "@container": "./src/container",
           "@helpers": "./src/helpers",
-          "@state": "./src/state"
+          "@state": "./src/state",
+          "@server": "./server"
         }
       }
     ],
