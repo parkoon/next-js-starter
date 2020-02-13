@@ -7,7 +7,7 @@ import {
   decrementAsync,
 } from '@state/ducks/counter/actions'
 
-import { withTranslation, i18n } from '@server/i18n'
+import { withTranslation, i18n } from '@server/helpers/i18n'
 
 const Center = styled.div`
   height: 100vh;

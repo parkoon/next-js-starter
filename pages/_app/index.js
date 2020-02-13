@@ -3,7 +3,7 @@ import configureStore from '@/state/store'
 import GlobalStyle from '@/components/GlobalStyle'
 import reduxWrapper from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
-import { appWithTranslation } from '@server/i18n'
+import { appWithTranslation } from '@server/helpers/i18n'
 
 function App({ Component, pageProps, store }) {
   return (
