@@ -8,6 +8,7 @@ import {
 } from '@state/ducks/counter/actions'
 
 import { withTranslation, i18n } from '@server/helpers/i18n'
+import withAuth from '@/hoc/withAuth'
 
 const Center = styled.div`
   height: 100vh;
