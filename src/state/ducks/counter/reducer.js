@@ -1,3 +1,4 @@
+import produce from 'immer'
 import * as types from './types'
 
 const INITIAL_STATE = {
@@ -5,25 +6,23 @@ const INITIAL_STATE = {
 }
 
 function reducer(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case types.INCREMENT_ASYNC_SUCCESS:
-    case types.INCREMENT: {
-      return {
-        ...state,
-        count: state.count + 1,
+  return produce(state, draft => {
+    switch (action.type) {
+      case types.INCREMENT_ASYNC_SUCCESS:
+      case types.INCREMENT: {
+        draft.count += 1
+        break
       }
-    }
-    case types.DECREMENT_ASYNC_SUCCESS:
-    case types.DECREMENT: {
-      return {
-        ...state,
-        count: state.count - 1,
+      case types.DECREMENT_ASYNC_SUCCESS:
+      case types.DECREMENT: {
+        draft.count -= 1
+        break
       }
-    }
 
-    default:
-      return state
-  }
+      default:
+        break
+    }
+  })
 }
 
 export default reducer
