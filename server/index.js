@@ -2,11 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const next = require('next')
 const nextI18NextMiddleware = require('next-i18next/middleware').default
-const nextI18next = require('./i18n')
+const nextI18next = require('./helpers/i18n')
+const middlewareConfigure = require('./middlewares')
 
 const router = require('../routes')
 
-const withRenderAndCache = require('./cache')
+const withRenderAndCache = require('./helpers/cache')
 
 const port = parseInt(process.env.PORT, 10) || 3007
 const dev = process.env.NODE_ENV !== 'production'
@@ -22,6 +23,9 @@ const routerHandler = router.getRequestHandler(
 
 app.prepare().then(() => {
   const server = express()
+
+  middlewareConfigure(server)
+
   server.use(nextI18NextMiddleware(nextI18next))
 
   server.use(routerHandler)
