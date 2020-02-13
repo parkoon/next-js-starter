@@ -5,7 +5,7 @@ const nextI18NextMiddleware = require('next-i18next/middleware').default
 const nextI18next = require('./helpers/i18n')
 const middlewareConfigure = require('./middlewares')
 
-const router = require('../routes')
+const router = require('./routes')
 
 const withRenderAndCache = require('./helpers/cache')
 
