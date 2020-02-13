@@ -1,16 +1,13 @@
 import React from 'react'
-
 import styled from 'styled-components'
-import Heading from '@/components/UI/atoms/Heading'
-import Button from '../../atoms/Button'
 
+import { Formik } from 'formik'
+
+import Heading from '../../atoms/Heading'
+import Button from '../../atoms/Button'
 import InputField from '../../molecules/InputField'
 
 const StyledLoginFormWrapper = styled.div`
-  /* display: flex; */
-  /* justify-content: center; */
-  /* flex-direction: column; */
-  /* align-items: center; */
   width: 320px;
   padding: 42px 20px;
   margin: 0 auto;
@@ -26,26 +23,63 @@ const StyledButtonWrapper = styled.div`
   text-align: right;
 `
 
-const LoginForm = () => {
+const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
   return (
-    <form>
-      <StyledLoginFormWrapper>
-        <Heading>Login Form</Heading>
+    <Formik
+      initialValues={initialValue}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {props => {
+        const {
+          values,
+          touched,
+          errors,
+          isSubmitting,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        } = props
 
-        <StyleInputFieldWrapper>
-          <InputField label="email" placeholder="email..." type="text" />
-          <InputField
-            label="password"
-            placeholder="password..."
-            type="password"
-          />
-        </StyleInputFieldWrapper>
+        return (
+          <form onSubmit={handleSubmit}>
+            <StyledLoginFormWrapper>
+              <Heading>Login Form</Heading>
 
-        <StyledButtonWrapper>
-          <Button>Login</Button>
-        </StyledButtonWrapper>
-      </StyledLoginFormWrapper>
-    </form>
+              <StyleInputFieldWrapper>
+                <InputField
+                  label="email"
+                  name="email"
+                  type="text"
+                  placeholder="email..."
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  invalid={errors.email && touched.email}
+                />
+
+                <InputField
+                  label="password"
+                  name="password"
+                  type="password"
+                  placeholder="passowrd..."
+                  password={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  invalid={errors.password && touched.password}
+                />
+              </StyleInputFieldWrapper>
+
+              <StyledButtonWrapper>
+                <Button type="submit" disabled={isSubmitting}>
+                  Login
+                </Button>
+              </StyledButtonWrapper>
+            </StyledLoginFormWrapper>
+          </form>
+        )
+      }}
+    </Formik>
   )
 }
 
