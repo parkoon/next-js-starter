@@ -4,13 +4,16 @@ import GlobalStyle from '@/components/GlobalStyle'
 import reduxWrapper from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 import { appWithTranslation } from '@server/helpers/i18n'
+import { PersistGate } from 'redux-persist/lib/integration/react'
 
 function App({ Component, pageProps, store }) {
   return (
     <>
       <Provider store={store}>
-        <Component {...pageProps} />
-        <GlobalStyle />
+        <PersistGate loading={null} persistor={store.__PERSISTOR}>
+          <Component {...pageProps} />
+          <GlobalStyle />
+        </PersistGate>
       </Provider>
     </>
   )

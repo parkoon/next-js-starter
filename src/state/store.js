@@ -2,6 +2,9 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger'
 
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import rootSaga from '@/sagas'
 import reducer from './ducks'
 
@@ -20,8 +23,22 @@ function configureStore(preloadedState, { isServer, req }) {
       )
     : compose(applyMiddleware(...middlewares))
 
-  const store = createStore(reducer, preloadedState, enhancer)
+  // Redux persist
+  let store
+  if (isServer) {
+    store = createStore(reducer, preloadedState, enhancer)
+  } else {
+    const persistConfig = {
+      key: 'root',
+      storage,
+    }
+    const persistedReducer = persistReducer(persistConfig, reducer)
 
+    store = createStore(persistedReducer, preloadedState, enhancer)
+    store.__PERSISTOR = persistStore(store)
+  }
+
+  // Run Saga
   if (req || !isServer) {
     store.sagaTask = sagaMiddleware.run(rootSaga)
   }
