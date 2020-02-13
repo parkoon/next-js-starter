@@ -11,7 +11,8 @@
           "@container": "./src/container",
           "@helpers": "./src/helpers",
           "@state": "./src/state",
-          "@server": "./server"
+          "@server": "./server",
+          "@api": "./src/services/api"
         }
       }
     ],
