@@ -24,7 +24,7 @@ const StyledButtonWrapper = styled.div`
   text-align: right;
 `
 
-const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
+const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
   return (
     <Formik
       initialValues={initialValue}
@@ -45,7 +45,7 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
         return (
           <form onSubmit={handleSubmit}>
             <StyledLoginFormWrapper>
-              <Heading>Login Form</Heading>
+              <Heading>SIGN UP FORM</Heading>
 
               <StyleInputFieldWrapper>
                 <InputField
@@ -69,19 +69,20 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
                   onBlur={handleBlur}
                   invalid={errors.password && touched.password}
                 />
+                <InputField
+                  label="password"
+                  name="passwordConfirm"
+                  type="password"
+                  placeholder="passowrd confirm..."
+                  password={values.passwordConfirm}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  invalid={errors.passwordConfirm && touched.passwordConfirm}
+                />
               </StyleInputFieldWrapper>
 
               <StyledButtonWrapper>
-                <Button
-                  onClick={() => Router.pushRoute('/auth/signup')}
-                  type="button"
-                  style={{ marginRight: '20px' }}
-                >
-                  SIGN UP
-                </Button>
-                <Button type="submit" disabled={isSubmitting}>
-                  SIGN IN
-                </Button>
+                <Button type="submit">SIGN UP</Button>
               </StyledButtonWrapper>
             </StyledLoginFormWrapper>
           </form>
@@ -91,4 +92,4 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
   )
 }
 
-export default LoginForm
+export default RegisterForm

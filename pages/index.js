@@ -9,6 +9,7 @@ import {
 
 import { withTranslation, i18n } from '@server/helpers/i18n'
 import withAuth from '@/hoc/withAuth'
+import { LOGOUT_REQUEST } from '@/state/ducks/user/types'
 
 const Center = styled.div`
   height: 100vh;
@@ -74,6 +75,12 @@ function Home({ t }) {
     i18n.changeLanguage(i18n.language === 'en' ? 'ko' : 'en')
   }
 
+  const handleLogout = () => {
+    dispatch({
+      type: LOGOUT_REQUEST,
+    })
+  }
+
   return (
     <>
       <Center>
@@ -98,12 +105,17 @@ function Home({ t }) {
         <FloatingButton onClick={changeLanguage} color="black">
           {i18n.language === 'en' ? 'ko' : 'en'}
         </FloatingButton>
+
+        <Button color="#ffeaa7" onClick={handleLogout}>
+          X
+        </Button>
       </Center>
     </>
   )
 }
+
 Home.getInitialProps = async () => ({
   namespacesRequired: ['home'],
 })
 
-export default withTranslation('home')(Home)
+export default withTranslation('home')(withAuth(Home))
