@@ -24,19 +24,21 @@ function configureStore(preloadedState, { isServer, req }) {
     : compose(applyMiddleware(...middlewares))
 
   // Redux persist
-  let store
-  if (isServer) {
-    store = createStore(reducer, preloadedState, enhancer)
-  } else {
-    const persistConfig = {
-      key: 'root',
-      storage,
-    }
-    const persistedReducer = persistReducer(persistConfig, reducer)
+  // let store
+  // if (isServer) {
+  //   store = createStore(reducer, preloadedState, enhancer)
+  // } else {
+  //   const persistConfig = {
+  //     key: 'root',
+  //     storage,
+  //   }
+  //   const persistedReducer = persistReducer(persistConfig, reducer)
 
-    store = createStore(persistedReducer, preloadedState, enhancer)
-    store.__PERSISTOR = persistStore(store)
-  }
+  //   store = createStore(persistedReducer, preloadedState, enhancer)
+  //   store.__PERSISTOR = persistStore(store)
+  // }
+
+  const store = createStore(reducer, preloadedState, enhancer)
 
   // Run Saga
   if (req || !isServer) {
