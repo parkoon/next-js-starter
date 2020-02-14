@@ -8,7 +8,7 @@
       "@container/*": ["./src/container/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@state/*": ["./src/state/*"],
-      "@api/*": ["./src/services/api/*"]
+      "@api/*": ["src/api/*"]
     }
   }
 }
