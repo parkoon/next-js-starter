@@ -4,10 +4,11 @@ import { loginAPI, signupAPI } from '@/api/user'
 
 import { Router } from '@server/routes'
 import { setSession, delSession } from '@/helper/auth'
+import { toast } from 'react-toastify'
 
 function* login(action) {
   try {
-    yield delay(3000)
+    yield delay(2000)
 
     const { data } = yield call(loginAPI, action.payload)
     const { token } = data
@@ -37,7 +38,13 @@ function* logout() {
 
 function* signup(action) {
   try {
+    yield delay(2000)
     yield call(signupAPI, action.payload)
+
+    yield put({
+      type: types.SIGNUP_SUCCESS,
+    })
+
     Router.pushRoute('/auth/login')
   } catch (err) {
     yield put({

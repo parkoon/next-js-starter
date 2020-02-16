@@ -23,7 +23,12 @@ const StyleInputFieldWrapper = styled.div`
 
 const StyledButtonWrapper = styled.div``
 
-const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
+const RegisterForm = ({
+  onSubmit,
+  initialValue,
+  validationSchema,
+  loading,
+}) => {
   return (
     <Formik
       initialValues={initialValue}
@@ -62,6 +67,7 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.email && touched.email}
+                  errorMessage={errors.email}
                 />
 
                 <InputField
@@ -73,6 +79,7 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.password && touched.password}
+                  errorMessage={errors.password}
                 />
                 <InputField
                   label="password"
@@ -83,13 +90,15 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.passwordConfirm && touched.passwordConfirm}
+                  errorMessage={errors.passwordConfirm}
                 />
                 <StyledButtonWrapper>
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={loading}
                     block
                     color="primary"
+                    loading={loading}
                   >
                     회원가입
                   </Button>
