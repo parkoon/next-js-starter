@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux'
-
-import { loadingReducer } from '@/helper/loadingReducer'
-import { errorReducer } from '@/helper/errorReducer'
 import counterReducer from './counter/reducer'
 import userReducer from './user/reducer'
+import { loadingReducer } from './loading/reducer'
+import { errorReducer } from './error/reducer'
 
 const combinedReducer = combineReducers({
   counter: counterReducer,
