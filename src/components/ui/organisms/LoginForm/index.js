@@ -33,7 +33,7 @@ const StyledButtonWrapper = styled.div`
   /* text-align: right; */
 `
 
-const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
+const LoginForm = ({ onSubmit, initialValue, validationSchema, loading }) => {
   return (
     <Formik
       initialValues={initialValue}
@@ -45,12 +45,11 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
           values,
           touched,
           errors,
-          isSubmitting,
+          /* isSubmitting, */
           handleChange,
           handleBlur,
           handleSubmit,
         } = props
-
         return (
           <form onSubmit={handleSubmit}>
             <StyledLoginFormWrapper>
@@ -107,9 +106,10 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema }) => {
                 <StyledButtonWrapper>
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={loading}
                     block
                     color="primary"
+                    loading={loading}
                   >
                     로그인
                   </Button>
