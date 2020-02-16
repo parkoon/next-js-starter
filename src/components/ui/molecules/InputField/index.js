@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Input from '../../atoms/Input'
-import Label from '../../atoms/Label'
 import Text from '../../atoms/Text'
 
 const StyledInputWrapper = styled.div`

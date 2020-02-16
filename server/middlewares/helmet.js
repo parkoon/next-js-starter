@@ -1,6 +1,6 @@
 const helmet = require('helmet')
-const hpkp = require('hpkp')
-const ms = require('ms')
+// const hpkp = require('hpkp')
+// const ms = require('ms')
 
 module.exports = app => {
   app.use(helmet())

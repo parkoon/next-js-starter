@@ -8,14 +8,14 @@ import {
 } from 'redux-saga/effects'
 import * as types from '@state/ducks/counter/types'
 
-function* increment(action) {
+function* increment() {
   yield delay(500)
   yield put({
     type: types.INCREMENT_ASYNC_SUCCESS,
   })
 }
 
-function* decrement(action) {
+function* decrement() {
   yield delay(500)
   yield put({
     type: types.DECREMENT_ASYNC_SUCCESS,

@@ -2,7 +2,6 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Link } from '@server/routes'
-import { ifProp } from 'styled-tools'
 import theme from '@/components/themes/default'
 
 const fontSize = ({ height }) => `${height / 40}rem`

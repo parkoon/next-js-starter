@@ -13,7 +13,7 @@ const StyledNavWrapper = styled.ul`
   }
 `
 
-function NavField(props) {
+function NavField() {
   return (
     <StyledNavWrapper>
       <li>

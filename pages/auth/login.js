@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { Link } from '@server/routes'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 
 import LoginForm from '@/components/ui/organisms/LoginForm'
 import { loginValidationSchema } from '@/helper/validation'
 import { LOGIN_REQUEST } from '@/state/ducks/user/types'
-import AppHeader from '@/components/ui/organisms/AppHeader'
-import AppLink from '@/components/ui/atoms/Link'
 import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const initialValue = {

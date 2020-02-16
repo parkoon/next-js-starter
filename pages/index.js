@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  decrement,
-  increment,
-  incrementAsync,
-  decrementAsync,
-} from '@state/ducks/counter/actions'
+import { decrement, increment } from '@state/ducks/counter/actions'
 
 import { withTranslation, i18n } from '@server/helpers/i18n'
 import withAuth from '@/hoc/withAuth'

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import { Formik } from 'formik'
 
-import { Router } from '@server/routes'
 import Heading from '../../atoms/Heading'
 import Button from '../../atoms/Button'
 import InputField from '../../molecules/InputField'

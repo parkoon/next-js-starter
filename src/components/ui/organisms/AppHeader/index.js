@@ -2,7 +2,6 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import NavField from '../../molecules/NavField'
-import LogoImage from '../../atoms/Logo'
 import Heading from '../../atoms/Heading'
 
 const StyledHeader = styled.header`
@@ -22,7 +21,7 @@ const StyledLogoWrapper = styled.div`
   color: #fff;
 `
 
-function AppHeader(props) {
+function AppHeader() {
   return (
     <StyledHeader>
       <StyledLogoWrapper>

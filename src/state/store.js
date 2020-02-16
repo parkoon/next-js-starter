@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger'
 
-import { persistReducer, persistStore } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+// import { persistReducer, persistStore } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage'
 
 import rootSaga from '@/sagas'
 import reducer from './ducks'

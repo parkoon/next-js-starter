@@ -7,6 +7,8 @@ import { setSession, delSession } from '@/helper/auth'
 
 function* login(action) {
   try {
+    yield delay(3000)
+
     const { data } = yield call(loginAPI, action.payload)
     const { token } = data
 
@@ -25,7 +27,7 @@ function* login(action) {
   }
 }
 
-function* logout(action) {
+function* logout() {
   delSession()
   yield put({
     type: types.LOGOUT_SUCCESS,
@@ -35,7 +37,7 @@ function* logout(action) {
 
 function* signup(action) {
   try {
-    const { data } = yield call(signupAPI, action.payload)
+    yield call(signupAPI, action.payload)
     Router.pushRoute('/auth/login')
   } catch (err) {
     yield put({
@@ -46,7 +48,6 @@ function* signup(action) {
 }
 
 function* watchLogin() {
-  yield delay(2000)
   yield takeLatest(types.LOGIN_REQUEST, login)
 }
 
