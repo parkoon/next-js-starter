@@ -11,7 +11,7 @@ const globalStyles = createGlobalStyle`
         box-sizing:boerder-box;
     }
     body{
-        background-color: #dfe6e9
+        background-color: #ecf0f1
     }
 `
 

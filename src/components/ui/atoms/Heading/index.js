@@ -8,8 +8,8 @@ const styles = css`
   font-weight: 500;
   font-size: ${fontSize};
   margin: 0;
-  margin-top: 0.85714em;
-  margin-bottom: 0.57142em;
+  /* margin-top: 0.85714em; */
+  /* margin-bottom: 0.57142em; */
   color: '#d35400';
 `
 

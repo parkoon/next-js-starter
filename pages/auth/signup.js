@@ -3,6 +3,7 @@ import RegisterForm from '@/components/ui/organisms/SignupForm'
 import { registValidationSchema } from '@/helper/validation'
 import { useDispatch } from 'react-redux'
 import { SIGNUP_REQUEST } from '@/state/ducks/user/types'
+import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const initialValue = {
   email: 'test@qualson.com',
@@ -19,13 +20,13 @@ function Signup() {
     })
   }
   return (
-    <>
+    <BaseAppLayout>
       <RegisterForm
         onSubmit={handleSignup}
         validationSchema={registValidationSchema}
         initialValue={initialValue}
       />
-    </>
+    </BaseAppLayout>
   )
 }
 

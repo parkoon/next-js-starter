@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Input from '../../atoms/Input'
 import Label from '../../atoms/Label'
+import Text from '../../atoms/Text'
 
 const StyledInputWrapper = styled.div`
   width: 320px;
@@ -10,10 +11,12 @@ const StyledInputWrapper = styled.div`
 `
 
 const InputField = ({ label, ...props }) => {
+  const { invalid } = props
   return (
     <StyledInputWrapper>
-      <Label>{label}</Label>
-      <Input height={32} {...props} />
+      {/* <Label>{label}</Label> */}
+      <Input height={42} {...props} />
+      {invalid && <Text type="danger">zz</Text>}
     </StyledInputWrapper>
   )
 }

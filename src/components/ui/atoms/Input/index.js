@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { ifProp } from 'styled-tools'
 
-const fontSize = ({ height }) => `${height / 35.5555555556}rem`
+const fontSize = ({ height }) => `${height / 45.5555555556}rem`
 
 const styles = css`
   display: block;
@@ -14,12 +14,12 @@ const styles = css`
   padding: ${ifProp(
     { type: 'textarea' },
     '0.4444444444em',
-    '0 0.4444444444em'
+    '0 0.8444444444em'
   )};
-  height: ${ifProp({ type: 'textarea' }, 'auto', '2.2222222222em')};
+  height: ${ifProp({ type: 'textarea' }, 'auto', '3.2222222222em')};
   color: '#2c3e50';
   background-color: '#ecf0f1';
-  border: 1px solid ${ifProp('invalid', '#c0392b', '#ecf0f1')};
+  border: 1px solid ${ifProp('invalid', '#c0392b', '#bdc3c7')};
   border-radius: 2px;
 
   &[type='checkbox'],

@@ -7,22 +7,22 @@ import { Router } from '@server/routes'
 import Heading from '../../atoms/Heading'
 import Button from '../../atoms/Button'
 import InputField from '../../molecules/InputField'
+import LogoImage from '../../atoms/Logo'
 
-const StyledLoginFormWrapper = styled.div`
-  width: 320px;
-  padding: 42px 20px;
-  margin: 0 auto;
-  margin-top: 320px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+const StyledSignupFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 170px;
 `
 
 const StyleInputFieldWrapper = styled.div`
-  margin-top: 32px;
+  width: 320px;
+  padding: 42px 20px;
+  margin: 0 auto;
 `
 
-const StyledButtonWrapper = styled.div`
-  text-align: right;
-`
+const StyledButtonWrapper = styled.div``
 
 const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
   return (
@@ -44,15 +44,21 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
 
         return (
           <form onSubmit={handleSubmit}>
-            <StyledLoginFormWrapper>
-              <Heading>SIGN UP FORM</Heading>
+            <StyledSignupFormWrapper>
+              <LogoImage width="42" />
+              <Heading level="2" style={{ marginTop: '12px' }}>
+                Sign up
+              </Heading>
+              <Heading level="3" style={{ marginTop: '7px' }}>
+                회원가입
+              </Heading>
 
               <StyleInputFieldWrapper>
                 <InputField
                   label="email"
                   name="email"
                   type="text"
-                  placeholder="email..."
+                  placeholder="이메일을 입력하세요"
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -63,7 +69,7 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
                   label="password"
                   name="password"
                   type="password"
-                  placeholder="passowrd..."
+                  placeholder="비밀번호를 입력하세요."
                   password={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -73,18 +79,24 @@ const RegisterForm = ({ onSubmit, initialValue, validationSchema }) => {
                   label="password"
                   name="passwordConfirm"
                   type="password"
-                  placeholder="passowrd confirm..."
+                  placeholder="비밀번호를 다시 입력하세요."
                   password={values.passwordConfirm}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.passwordConfirm && touched.passwordConfirm}
                 />
+                <StyledButtonWrapper>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    block
+                    color="primary"
+                  >
+                    회원가입
+                  </Button>
+                </StyledButtonWrapper>
               </StyleInputFieldWrapper>
-
-              <StyledButtonWrapper>
-                <Button type="submit">SIGN UP</Button>
-              </StyledButtonWrapper>
-            </StyledLoginFormWrapper>
+            </StyledSignupFormWrapper>
           </form>
         )
       }}
