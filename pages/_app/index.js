@@ -6,6 +6,13 @@ import withReduxSaga from 'next-redux-saga'
 import { appWithTranslation } from '@server/helpers/i18n'
 // import { PersistGate } from 'redux-persist/lib/integration/react'
 
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure({
+  position: toast.POSITION.BOTTOM_RIGHT,
+})
+
 function App({ Component, pageProps, store }) {
   return (
     <>
@@ -13,6 +20,7 @@ function App({ Component, pageProps, store }) {
         {/* <PersistGate loading={null} persistor={store.__PERSISTOR}> */}
         <Component {...pageProps} />
         <GlobalStyle />
+        <ToastContainer />
         {/* </PersistGate> */}
       </Provider>
     </>
