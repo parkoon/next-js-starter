@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import LoginForm from '@/components/ui/organisms/LoginForm'
 import { loginValidationSchema } from '@/helper/validation'
-import { LOGIN_REQUEST } from '@/state/ducks/user/types'
+import { LOGIN_REQUEST } from '@/state/modules/user/types'
 import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const initialValue = {

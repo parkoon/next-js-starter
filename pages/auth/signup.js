@@ -2,7 +2,7 @@ import React from 'react'
 import RegisterForm from '@/components/ui/organisms/SignupForm'
 import { registValidationSchema } from '@/helper/validation'
 import { useDispatch } from 'react-redux'
-import { SIGNUP_REQUEST } from '@/state/ducks/user/types'
+import { SIGNUP_REQUEST } from '@/state/modules/user/types'
 import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const initialValue = {

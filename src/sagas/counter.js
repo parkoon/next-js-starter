@@ -6,7 +6,7 @@ import {
   delay,
   put,
 } from 'redux-saga/effects'
-import * as types from '@state/ducks/counter/types'
+import * as types from '@/state/modules/counter/types'
 
 function* increment() {
   yield delay(500)

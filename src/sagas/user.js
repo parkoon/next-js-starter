@@ -1,5 +1,5 @@
 import { fork, all, put, call, takeLatest, delay } from 'redux-saga/effects'
-import * as types from '@state/ducks/user/types'
+import * as types from '@/state/modules/user/types'
 import { loginAPI, signupAPI } from '@/api/user'
 
 import { Router } from '@server/routes'

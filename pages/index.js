@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '@state/ducks/counter/actions'
+import { decrement, increment } from '@/state/modules/counter/actions'
 
 import { withTranslation, i18n } from '@server/helpers/i18n'
 import withAuth from '@/hoc/withAuth'
-import { LOGOUT_REQUEST } from '@/state/ducks/user/types'
+import { LOGOUT_REQUEST } from '@/state/modules/user/types'
 
 const Center = styled.div`
   height: 100vh;

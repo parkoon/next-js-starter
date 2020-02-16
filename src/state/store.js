@@ -6,7 +6,7 @@ import logger from 'redux-logger'
 // import storage from 'redux-persist/lib/storage'
 
 import rootSaga from '@/sagas'
-import reducer from './ducks'
+import reducer from './modules'
 
 function configureStore(preloadedState, { isServer, req }) {
   const sagaMiddleware = createSagaMiddleware()
