@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { ifProp } from 'styled-tools'
 import theme from '@/components/themes/default'
+import Spin from '../Spin'
 
 const fontSize = ({ height }) => `${height / 40}rem`
 
@@ -21,6 +22,7 @@ const backgroundColor = ({ color }) => theme.palette[color][0]
 const fontColor = ({ color }) => (color === 'white' ? '#000' : '#fff')
 
 const styles = css`
+  display: flex;
   white-space: nowrap;
   font-size: ${fontSize};
   border: 0.0625em solid ${ifProp('transparent', 'currentcolor', 'transparent')};
@@ -55,8 +57,13 @@ const styles = css`
 const StyledButton = styled.button`
   ${styles}
 `
-
-const Button = ({ type, ...props }) => {
+const Button = ({ loading, type, ...props }) => {
+  if (loading)
+    return (
+      <StyledButton {...props} type={type}>
+        <Spin />
+      </StyledButton>
+    )
   return <StyledButton {...props} type={type} />
 }
 
