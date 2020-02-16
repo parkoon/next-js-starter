@@ -10,12 +10,17 @@ const StyledInputWrapper = styled.div`
 `
 
 const InputField = ({ label, ...props }) => {
-  const { invalid } = props
+  const { invalid, errorMessage } = props
+  console.log(invalid, errorMessage)
   return (
     <StyledInputWrapper>
       {/* <Label>{label}</Label> */}
       <Input height={42} {...props} />
-      {invalid && <Text type="danger">zz</Text>}
+      {invalid && (
+        <Text type="danger" height={30}>
+          {errorMessage}
+        </Text>
+      )}
     </StyledInputWrapper>
   )
 }

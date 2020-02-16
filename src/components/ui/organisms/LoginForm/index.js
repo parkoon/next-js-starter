@@ -70,6 +70,7 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema, loading }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.email && touched.email}
+                  errorMessage={errors.email}
                 />
 
                 <InputField
@@ -81,6 +82,7 @@ const LoginForm = ({ onSubmit, initialValue, validationSchema, loading }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   invalid={errors.password && touched.password}
+                  errorMessage={errors.password}
                 />
 
                 <StyledForgotWrapper>
