@@ -81,30 +81,10 @@ function Home({ t }) {
     <BaseAppLayout>
       <Center>
         <Title>{t('title')}</Title>
-        <Display>{count}</Display>
-
-        <ButtonGroup>
-          {/* <Button color="#00b894" onClick={() => dispatch(incrementAsync())}>
-            +
-          </Button> */}
-          <Button color="#00b894" onClick={() => dispatch(increment())}>
-            +
-          </Button>
-          {/* <Button color="#ffeaa7" onClick={() => dispatch(decrementAsync())}>
-            -
-          </Button> */}
-          <Button color="#ffeaa7" onClick={() => dispatch(decrement())}>
-            -
-          </Button>
-        </ButtonGroup>
 
         <FloatingButton onClick={changeLanguage} color="black">
           {i18n.language === 'en' ? 'ko' : 'en'}
         </FloatingButton>
-
-        <Button color="#ffeaa7" onClick={handleLogout}>
-          X
-        </Button>
       </Center>
     </BaseAppLayout>
   )

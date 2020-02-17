@@ -13,19 +13,29 @@ const StyledNavWrapper = styled.ul`
   }
 `
 
-function NavField() {
+function NavField({ auth, handleLogout }) {
   return (
     <StyledNavWrapper>
-      <li>
-        <AppLink route="/auth/login" color="white">
-          로그인
-        </AppLink>
-      </li>
-      <li>
-        <AppLink route="/auth/signup" color="white">
-          회원가입
-        </AppLink>
-      </li>
+      {!auth ? (
+        <>
+          <li>
+            <AppLink route="/auth/login" color="white">
+              로그인
+            </AppLink>
+          </li>
+          <li>
+            <AppLink route="/auth/signup" color="white">
+              회원가입
+            </AppLink>
+          </li>
+        </>
+      ) : (
+        <li>
+          <AppLink onClick={handleLogout} color="white">
+            로그아웃
+          </AppLink>
+        </li>
+      )}
     </StyledNavWrapper>
   )
 }

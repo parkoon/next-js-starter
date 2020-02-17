@@ -9,6 +9,16 @@ export const delSession = () => {
   Cookies.remove('jwt')
 }
 
+export const isAuthenticated = () => {
+  if (process.browser) {
+    const token = Cookies.getJSON('jwt')
+    if (token) {
+      return true
+    }
+    return false
+  }
+}
+
 export const verifyToken = token => {
   if (token) {
     const decodedToken = jwt.decode(token)

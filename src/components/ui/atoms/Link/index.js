@@ -28,9 +28,30 @@ const StyledAnchor = styled.a`
   ${styles}
 `
 
-const AppLink = ({ children, ...props }) => {
+const StyledButton = styled.button`
+  position: relative;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  color: ${({ color }) => theme.palette[color][0]};
+  font-size: ${fontSize};
+`
+
+const AppLink = ({ onClick, children, ...props }) => {
   const { href, route } = props
 
+  if (typeof onClick === 'function') {
+    console.log('함수임!')
+    return (
+      <StyledButton onClick={onClick} {...props}>
+        {children}
+      </StyledButton>
+    )
+  }
   if (href) return <StyledAnchor {...props} />
   if (route)
     return (

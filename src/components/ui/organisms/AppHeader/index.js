@@ -1,7 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import NavField from '../../molecules/NavField'
+import NavContainer from '@/container/NavContainer'
 import Heading from '../../atoms/Heading'
 
 const StyledHeader = styled.header`
@@ -28,7 +28,7 @@ function AppHeader() {
         <Heading level="2">Lets coding</Heading>
       </StyledLogoWrapper>
 
-      <NavField />
+      <NavContainer />
     </StyledHeader>
   )
 }
