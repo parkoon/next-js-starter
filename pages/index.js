@@ -1,10 +1,6 @@
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '@/state/modules/counter/actions'
-
 import { withTranslation, i18n } from '@server/helpers/i18n'
 import withAuth from '@/hoc/withAuth'
-import { LOGOUT_REQUEST } from '@/state/modules/user/types'
 import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const Center = styled.div`
@@ -29,24 +25,6 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-const ButtonGroup = styled.div`
-  display: flex;
-  width: 120px;
-  justify-content: space-between;
-`
-
-const Display = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #2d3436;
-  width: 320px;
-  height: 120px;
-  border-radius: 3px;
-  margin-bottom: 12px;
-  font-size: 3rem;
-`
-
 const Title = styled.h1`
   font-weight: bold;
   font-size: 2rem;
@@ -64,17 +42,8 @@ const FloatingButton = styled(Button)`
 `
 
 function Home({ t }) {
-  const dispatch = useDispatch()
-  const count = useSelector(({ counter }) => counter.count)
-
   const changeLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ko' : 'en')
-  }
-
-  const handleLogout = () => {
-    dispatch({
-      type: LOGOUT_REQUEST,
-    })
   }
 
   return (
