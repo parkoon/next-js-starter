@@ -34,7 +34,6 @@
     "immer": "^5.3.6",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
     "lru-cache": "^5.1.1",
     "morgan": "^1.9.1",
     "ms": "^2.1.2",
