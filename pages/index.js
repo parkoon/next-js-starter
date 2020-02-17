@@ -5,6 +5,7 @@ import { decrement, increment } from '@/state/modules/counter/actions'
 import { withTranslation, i18n } from '@server/helpers/i18n'
 import withAuth from '@/hoc/withAuth'
 import { LOGOUT_REQUEST } from '@/state/modules/user/types'
+import BaseAppLayout from '@/components/ui/templates/BaseAppLayout'
 
 const Center = styled.div`
   height: 100vh;
@@ -59,7 +60,7 @@ const FloatingButton = styled(Button)`
   font-size: 1rem;
   position: fixed;
   right: 20px;
-  top: 20px;
+  bottom: 20px;
 `
 
 function Home({ t }) {
@@ -77,7 +78,7 @@ function Home({ t }) {
   }
 
   return (
-    <>
+    <BaseAppLayout>
       <Center>
         <Title>{t('title')}</Title>
         <Display>{count}</Display>
@@ -105,7 +106,7 @@ function Home({ t }) {
           X
         </Button>
       </Center>
-    </>
+    </BaseAppLayout>
   )
 }
 
