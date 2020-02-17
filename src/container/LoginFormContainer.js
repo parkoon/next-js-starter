@@ -5,13 +5,9 @@ import { LOGIN_REQUEST } from '@/state/modules/user/types'
 import { loginValidationSchema } from '@/helper/validation'
 import { toast } from 'react-toastify'
 
-const initialValue = {
-  email: 'bubble_e@naver.com',
-  password: '1234',
-}
-
 function LoginFormContainer(props) {
   const dispatch = useDispatch()
+  const { email } = useSelector(({ user }) => user.me)
   const loading = useSelector(state => state.loading['user/LOGIN'])
   const error = useSelector(state => state.error['user/LOGIN'])
 
@@ -25,6 +21,11 @@ function LoginFormContainer(props) {
       type: LOGIN_REQUEST,
       payload: values,
     })
+  }
+
+  const initialValue = {
+    email,
+    password: '',
   }
 
   return (

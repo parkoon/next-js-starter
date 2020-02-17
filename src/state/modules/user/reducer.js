@@ -54,6 +54,7 @@ function reducer(state = INITIAL_STATE, action) {
         break
       case types.SIGNUP_SUCCESS:
         draft.loading = false
+        draft.me = action.payload
         break
       default:
         break

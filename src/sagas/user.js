@@ -39,10 +39,12 @@ function* logout() {
 function* signup(action) {
   try {
     yield delay(2000)
-    yield call(signupAPI, action.payload)
+    const { data } = yield call(signupAPI, action.payload)
+    const { user } = data
 
     yield put({
       type: types.SIGNUP_SUCCESS,
+      payload: user,
     })
 
     Router.pushRoute('/auth/login')
