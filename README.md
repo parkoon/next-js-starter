@@ -32,10 +32,20 @@ Next Js Starter with Express, Redux, Redux-Saga, Styled-components
 ## Getting started
 
 ```
-git clone https://github.com/parkoon/next-saga-starter my-project
-cd my-project
-yarn install
-yarn start
+git clone https://github.com/parkoon/next-saga-starter .
+cd next-saga-starter
+npm install
+npm run dev
+```
+
+And you need to API server
+
+```
+git clone https://github.com/parkoon/node-auth-boilerplate a.
+cd node-auth-boilerplate
+touch config/dev.js // you have to write MONGO_URI inside a dev.js
+npm install
+npm run dev
 ```
 
 You will probably want to remove next-saga-starter git history
