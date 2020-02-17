@@ -6,9 +6,9 @@ import { SIGNUP_REQUEST } from '@/state/modules/user/types'
 import { toast } from 'react-toastify'
 
 const initialValue = {
-  email: 'test@qualson.com',
-  password: '1234',
-  passwordConfirm: '1234',
+  email: 'admin01@qualson.com',
+  password: '',
+  passwordConfirm: '',
 }
 function SignUpContainer() {
   const dispatch = useDispatch()
